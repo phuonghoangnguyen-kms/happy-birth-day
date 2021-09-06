@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+$border-color: #2E3847;
+$border: 4px solid $border-color;
+$border-radius: 3px;
+$bow-color: #FF6E4B;
+
+.container {
+  font-family: 'Fredoka One', cursive;
+}
+
+.text {
+  min-width: 600px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px $border-color;
+  font-size: 3em;
+}
+
+.splitting {
+  .char {
+    animation: slide-in 1s cubic-bezier(.5, 0, .5, 1) both;
+    animation-delay: calc(60ms * var(--char-index));
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-1em) rotate(-.5turn) scale(0.5);
+    opacity: 0;
+  }
+}

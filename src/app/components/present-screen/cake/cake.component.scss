@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic);
 
 .background {
-  background: #ee9ca7;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  text-align: center;
 }
 
 #cake {
@@ -89,7 +89,6 @@
   */
 
 @keyframes fuego {
-
   0%,
   100% {
     background: rgba(254, 248, 97, 0.5);
@@ -110,14 +109,6 @@
   }
 }
 
-.text {
-  color: #8b6a60;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  text-align: center;
-
-  h1 {
-    font-size: 1.4em;
-  }
+#btn-message {
+  margin-top: 15px;
 }

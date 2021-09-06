@@ -163,9 +163,6 @@
     </path>
     <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
   </svg>
-  <div class="text">
-    <h1>Happy birthday my girl</h1>
-    <p>Phuong Anh</p>
-  </div>
-
+  <theme-card *ngIf="show"></theme-card>
+  <button *ngIf="show" id="btn-message" class="btn btn-success" (click)="openMessage()">You have a message</button>
 </div>

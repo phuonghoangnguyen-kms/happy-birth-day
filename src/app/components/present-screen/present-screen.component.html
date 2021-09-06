@@ -1,5 +1,7 @@
-<curtain *ngIf="screen == 1" (callback)="screen = $event"></curtain>
+<curtain *ngIf="screen == 1" (callback)="changeScreen($event)"></curtain>
 <ng-container *ngIf="screen == 2">
-  <blinking-light></blinking-light>
-  <cake></cake>
+  <div class="screen-2">
+    <blinking-light></blinking-light>
+    <cake></cake>
+  </div>
 </ng-container>
