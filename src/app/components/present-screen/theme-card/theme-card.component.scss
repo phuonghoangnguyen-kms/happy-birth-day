@@ -10,11 +10,10 @@ $bow-color: #FF6E4B;
 }
 
 .text {
-  min-width: 600px;
   text-align: center;
   color: white;
   text-shadow: 1px 1px $border-color;
-  font-size: 3em;
+  font-size: calc(100vw / 25);
 }
 
 .splitting {

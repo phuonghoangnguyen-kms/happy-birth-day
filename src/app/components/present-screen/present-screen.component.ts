@@ -20,23 +20,27 @@ export class PresentScreenComponent implements OnInit {
     public changeScreen(screen: number): void {
         this.screen = screen;
 
-        if(screen === 2){
-            // setTimeout(() => {
-            //     document.addEventListener('click', event => {
-            //         this.bursty(event.pageX, event.pageY);
-            //     });
-    
-            //     setInterval(() => {
-            //         this.randomizedConfetti();
-            //     }, 500);
+        if (screen === 2) {
+            setTimeout(() => {
+                document.addEventListener('click', event => {
+                    this.bursty(event.pageX, event.pageY);
+                });
 
-            //     setTimeout(() => {
-            //         setInterval(() => {
-            //             this.removeElement();
-            //         }, 500);
-            //     }, 2500);
+                let a = setInterval(() => {
+                    this.randomizedConfetti();
+                }, 500);
 
-            // }, 7000);
+                let b = setTimeout(() => {
+                    setInterval(() => {
+                        this.removeElement();
+                    }, 500);
+                }, 2500);
+
+                setTimeout(() => {
+                    clearInterval(a);
+                    clearInterval(b);
+                 }, 300000);
+            }, 7000);
         }
     }
 
@@ -81,9 +85,9 @@ export class PresentScreenComponent implements OnInit {
     }
 
     private removeElement(): void {
-       const element = document.querySelector('[data-name="mojs-shape"');
-       if (element) {
-        element.remove();
-       }
+        const element = document.querySelector('[data-name="mojs-shape"');
+        if (element) {
+            element.remove();
+        }
     }
 }

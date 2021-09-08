@@ -1,0 +1,14 @@
+:host {
+  .container {
+    width: 50vw;
+    height: 30vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}

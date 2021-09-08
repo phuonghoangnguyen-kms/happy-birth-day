@@ -14,7 +14,7 @@ export class CakeComponent implements OnInit {
     constructor(private dialog: MatDialog) { }
 
     ngOnInit(): void {
-        //this.playAudio();
+        this.playAudio();
         setTimeout(() => {
             this.show = true;
         }, 6500);
@@ -22,7 +22,7 @@ export class CakeComponent implements OnInit {
 
     playAudio() {
         let audio = new Audio();
-        audio.src = "../../../../assets/happy-birthday.mp3";
+        audio.src = "assets/happy-birthday.mp3";
         audio.loop = true;
         audio.load();
         audio.play();
