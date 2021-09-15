@@ -38,7 +38,6 @@ export class PresentScreenComponent implements OnInit {
 
                 setTimeout(() => {
                     clearInterval(a);
-                    clearInterval(b);
                  }, 300000);
             }, 7000);
         }

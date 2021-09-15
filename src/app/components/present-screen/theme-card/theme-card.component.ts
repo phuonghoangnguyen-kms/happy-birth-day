@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'theme-card',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./theme-card.component.scss']
 })
 export class ThemeCardComponent implements OnInit {
+    @Output() callback: EventEmitter<any> = new EventEmitter();
+
     constructor() { }
 
     ngOnInit(): void { }

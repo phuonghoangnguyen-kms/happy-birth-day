@@ -7,6 +7,7 @@ import { CakeComponent } from './components/present-screen/cake/cake.component';
 import { CommonModule } from '@angular/common';
 import { ConfettiComponent } from './components/present-screen/confetti/confetti.component';
 import { CurtainComponent } from './components/present-screen/curtain/curtain.component';
+import { EnvelopeComponent } from './components/present-screen/envelope/envelope.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -23,11 +24,12 @@ import { ThemeCardComponent } from './components/present-screen/theme-card/theme
     CakeComponent,
     ConfettiComponent,
     CurtainComponent,
+    EnvelopeComponent,
     HomeComponent,
     LoginComponent,
+    MessagePopupComponent,
     PresentScreenComponent,
     ThemeCardComponent,
-    MessagePopupComponent,
   ],
   imports: [
     BrowserModule,
