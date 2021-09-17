@@ -1,8 +1,12 @@
-<div mat-dialog-content>
+<div class="popup-content">
   <div class="container">
-    <img src="assets/images/messages/1.jpg" />
+    <div class="welcome" *ngIf="index == -1">Dear my girl!</div>
+    <ng-container *ngIf="index >= 0">
+      <div class="image"></div>
+      <div class="message">
+        {{ messages[index] }}
+      </div>
+    </ng-container>
   </div>
-</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+  <a mat-button mat-dialog-close>Close</a>
 </div>

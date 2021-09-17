@@ -1,14 +1,41 @@
 :host {
-  .container {
-    width: 50vw;
-    height: 30vw;
+  .popup-content {
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      width: auto;
-      height: 100%;
+    height: 100%;
+
+    .container {
+      width: 100%;
+      height: calc(100% - 20px);
+      position: relative;
+      .welcome {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3.5rem;
+      }
+      .image {
+        width: 100%;
+        height: 100%;
+        background-image: url("./../../../../assets/images/messages/1.jpg");
+        background-size: cover;
+        background-position: bottom;
+      }
+      .message {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.35);
+        color: white;
+        font-size: 2rem;
+        white-space: pre-wrap;
+        padding: 5px;
+      }
     }
   }
 }

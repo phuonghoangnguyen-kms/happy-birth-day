@@ -9,7 +9,20 @@ import { MatDialogRef } from "@angular/material/dialog";
 export class MessagePopupComponent implements OnInit {
     constructor(
         public dialogRef: MatDialogRef<MessagePopupComponent>) {
-
     }
-    ngOnInit(): void { }
+
+    messages: string[] = [
+        'Dear my girl'
+    ]
+
+    index = -1;
+
+    ngOnInit(): void {
+        const a = setInterval(() => {
+            if (this.index === this.messages.length) { 
+                clearInterval(a);
+            }
+            this.index++;
+        }, 3500);
+    }
 }

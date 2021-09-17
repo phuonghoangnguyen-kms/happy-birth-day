@@ -29,6 +29,10 @@ export class CakeComponent implements OnInit {
     }
 
     openMessage(): void {
-        const dialogRef = this.dialog.open(MessagePopupComponent);
+        const dialogRef = this.dialog.open(MessagePopupComponent, {
+            height: '80%',
+            width: '80%',
+            disableClose: true
+        });
     }
 }
