@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {
+    Component,
+    OnInit,
+    ViewChild
+} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MessagePopupComponent } from '../message-popup/message-popup.component';
+import { ThemeCardComponent } from '../theme-card/theme-card.component';
 
 @Component({
     selector: 'cake',
@@ -8,6 +13,8 @@ import { MessagePopupComponent } from '../message-popup/message-popup.component'
     styleUrls: ['./cake.component.scss']
 })
 export class CakeComponent implements OnInit {
+
+    @ViewChild('themeCard', { static: false }) themeCard: ThemeCardComponent;
 
     show = false;
 
@@ -34,5 +41,7 @@ export class CakeComponent implements OnInit {
             width: '80%',
             disableClose: true
         });
+
+        dialogRef.afterClosed().subscribe(() => this.themeCard.envelope.toggle());
     }
 }

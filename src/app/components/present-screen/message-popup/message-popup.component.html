@@ -1,12 +1,68 @@
 <div class="popup-content">
   <div class="container">
     <div class="welcome" *ngIf="index == -1">Dear my girl!</div>
-    <ng-container *ngIf="index >= 0">
-      <div class="image"></div>
-      <div class="message">
+    <ng-container>
+      <ng-container *ngFor="let item of messages; let i = index">
+        <div class="image" id="image-{{ i }}" [class.show]="index == i"></div>
+      </ng-container>
+      <div class="message" *ngIf="-1 < index && index < messages.length">
         {{ messages[index] }}
       </div>
     </ng-container>
+    <div class="image-heart" *ngIf="index == messages.length">
+      <image-heart></image-heart>
+    </div>
+    <div class="wishlist" *ngIf="index == messages.length + 1">
+      <div class="header">Wishlist</div>
+      <div>
+        <ol>
+          <li>
+            <input type="text" [(ngModel)]="wishlist1" />
+          </li>
+          <li>
+            <input type="text" [(ngModel)]="wishlist2" />
+          </li>
+          <li>
+            <input type="text" [(ngModel)]="wishlist3" />
+          </li>
+          <li>
+            <input type="text" [(ngModel)]="wishlist4" />
+          </li>
+          <li>
+            <input type="text" [(ngModel)]="wishlist5" />
+          </li>
+          <li>
+            <input type="text" [(ngModel)]="wishlist6" />
+          </li>
+          <li>
+            <input type="text" [(ngModel)]="wishlist7" />
+          </li>
+        </ol>
+      </div>
+    </div>
+    <ng-container *ngIf="index == messages.length + 2">
+      <div class="end">
+        <div>
+          <div id="text-1">And</div>
+          <div id="text-2">The last one...</div>
+          <div id="text-3">
+            <div class="heart"></div>
+            <div id="love-text">Love you so much</div>
+          </div>
+        </div>
+      </div>
+      <div class="close-popup">
+        <a mat-dialog-close>Close</a>
+      </div>
+    </ng-container>
   </div>
-  <a mat-button mat-dialog-close>Close</a>
+  <div class="button-navigate navigate-previous" *ngIf="index > -1">
+    <span class="arrow" (click)="previous()"></span>
+  </div>
+  <div
+    class="button-navigate navigate-next"
+    *ngIf="index < messages.length + 2"
+  >
+    <span class="arrow" (click)="next()"></span>
+  </div>
 </div>

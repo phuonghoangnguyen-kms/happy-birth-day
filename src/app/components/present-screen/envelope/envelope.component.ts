@@ -22,7 +22,7 @@ export class EnvelopeComponent implements OnInit, AfterViewInit {
         this.letter = document.getElementById('letter');
     }
 
-    toggle(): void {
+    public toggle(): void {
         if (this.opened) {
             this.close();
         } else {

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    OnInit,
+    Output,
+    ViewChild
+} from '@angular/core';
+import { EnvelopeComponent } from '../envelope/envelope.component';
 
 @Component({
     selector: 'theme-card',
@@ -7,6 +14,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ThemeCardComponent implements OnInit {
     @Output() callback: EventEmitter<any> = new EventEmitter();
+    @ViewChild('envelope') envelope: EnvelopeComponent;
 
     constructor() { }
 

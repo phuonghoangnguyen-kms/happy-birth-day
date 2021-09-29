@@ -1,11 +1,27 @@
+@font-face {
+  font-family: FleurDeLeahRegular;
+  src: url(./../../../../assets/font/FleurDeLeah-Regular.ttf);
+}
+
+@font-face {
+  font-family: Clover;
+  src: url(./../../../../assets/font/clover.otf);
+}
+
+$heart-size: 200px;
+$heart-size-before: $heart-size / -2;
+$heart-size-after: $heart-size / 2;
+$heart-color: red;
+
 :host {
   .popup-content {
     overflow: hidden;
     height: 100%;
+    position: relative;
 
     .container {
       width: 100%;
-      height: calc(100% - 20px);
+      height: 100%;
       position: relative;
       .welcome {
         position: absolute;
@@ -21,9 +37,21 @@
       .image {
         width: 100%;
         height: 100%;
-        background-image: url("./../../../../assets/images/messages/1.jpg");
+        // background-image: url("./../../../../assets/images/messages/1.jpg");
         background-size: cover;
         background-position: bottom;
+        display: none;
+
+        &.show {
+          display: block;
+        }
+      }
+      .image-heart {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .message {
         position: absolute;
@@ -36,6 +64,239 @@
         white-space: pre-wrap;
         padding: 5px;
       }
+      .wishlist {
+        .header {
+          font-family: FleurDeLeahRegular;
+          text-align: center;
+          font-size: 50px;
+        }
+        ol {
+          margin: 0;
+          li {
+            margin-bottom: 20px;
+            font-size: 20px;
+
+            input {
+              border-top: 0;
+              border-left: 0;
+              border-right: 0;
+              padding: 0;
+              width: 100%;
+              font-size: 20px;
+
+              &:focus-visible {
+                outline: unset;
+              }
+            }
+          }
+        }
+      }
+      .end {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > div {
+          width: 95%;
+        }
+        #text-1 {
+          width: 3.2ch;
+          animation: typing 0.8s steps(15);
+          white-space: nowrap;
+          overflow: hidden;
+          font-family: monospace;
+          font-size: 2em;
+        }
+
+        #text-2 {
+          width: 15ch;
+          visibility: hidden;
+          animation: visible 0s 0s forwards, typing 1s steps(15);
+          white-space: nowrap;
+          overflow: hidden;
+          font-family: monospace;
+          font-size: 2em;
+          animation-delay: 1.4s;
+        }
+
+        #text-3 {
+          visibility: hidden;
+          animation: visible 0s 0s forwards, opacity 3.5s;
+          animation-delay: 3.5s;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          .heart {
+            background-color: $heart-color;
+            height: $heart-size;
+            width: $heart-size;
+            transform: rotate(-45deg);
+
+            &:after {
+              background-color: $heart-color;
+              content: "";
+              border-radius: 50%;
+              position: absolute;
+              width: $heart-size;
+              height: $heart-size;
+              top: 0px;
+              left: $heart-size-after;
+            }
+
+            &:before {
+              background-color: $heart-color;
+              content: "";
+              border-radius: 50%;
+              position: absolute;
+              width: $heart-size;
+              height: $heart-size;
+              top: $heart-size-before;
+              left: 0px;
+            }
+          }
+
+          #love-text {
+            font-family: Clover;
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            top: 20px;
+            font-size: 1.5rem;
+          }
+        }
+      }
+      .close-popup {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
     }
+
+    .button-navigate {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background: rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.75s;
+
+      &.navigate-next {
+        right: -60px;
+
+        .arrow {
+          &:before,
+          &:after {
+            top: 41%;
+            left: 55%;
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+
+          &:after {
+            top: 59%;
+            left: 55%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+          }
+        }
+      }
+
+      &.navigate-previous {
+        left: -60px;
+
+        .arrow {
+          &:before,
+          &:after {
+            top: 41%;
+            left: 45%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+          }
+
+          &:after {
+            top: 59%;
+            left: 45%;
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+        }
+      }
+
+      .arrow {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: solid 4px white;
+        border-radius: 100%;
+        z-index: 1;
+        transition: all 0.2s linear;
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          width: 35%;
+          height: 10%;
+          background: white;
+          z-index: 2;
+          transition: all 0.2s linear;
+        }
+        &:after {
+          z-index: 3;
+          top: 59%;
+          left: 55%;
+        }
+        &:hover {
+          border: solid 6px #777;
+          &:after,
+          &:before {
+            background: #777;
+          }
+        }
+        &:active {
+          border: solid 6px #111;
+          &:after,
+          &:before {
+            background: #111;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .button-navigate {
+        &.navigate-next {
+          right: 0;
+        }
+        &.navigate-previous {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes visible {
+  to {
+    visibility: visible;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

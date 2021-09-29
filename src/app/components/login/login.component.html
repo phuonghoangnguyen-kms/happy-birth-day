@@ -21,7 +21,7 @@
       </span>
     </div>
     <div class="footer">
-      <div class="box" [class.show]="verify() && !isFocus">
+      <div class="box" [class.show]="verify()">
         <div class="box-body" [class.active]="openBox" (click)="openBox = !openBox">
           <div class="unbox" (click)="open()">
             <img class="img" src="assets/images/heart.png">
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="click-box" *ngIf="verify() && !isFocus">Click the box</div>
+      <div class="click-box" *ngIf="verify()">Click the box</div>
       <div class="error" *ngIf="!verify() && day && month && year && !isFocus">Hmmm.... Maybe you not my girl!</div>
     </div>
   </div>

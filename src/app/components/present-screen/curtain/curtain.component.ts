@@ -17,7 +17,11 @@ export class CurtainComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        setTimeout(() => {
+            this.onClick();
+        }, 3500);
+    }
 
     onClick(): void {
         this.active = true;
