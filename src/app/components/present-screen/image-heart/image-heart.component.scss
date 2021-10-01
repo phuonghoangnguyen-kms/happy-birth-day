@@ -253,7 +253,7 @@ $min-image-size: 48px;
   }
   @media screen and (max-width: 800px) {
     .image {
-      @include pageTemplate(38px);
+      @include pageTemplate(34px);
     }
   }
 }

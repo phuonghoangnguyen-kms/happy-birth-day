@@ -14,33 +14,50 @@ export class PresentScreenComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
-
+        this.playAudio();
     }
 
     public changeScreen(screen: number): void {
         this.screen = screen;
 
         if (screen === 2) {
+
+            let i = 0;
             setTimeout(() => {
                 document.addEventListener('click', event => {
-                    this.bursty(event.pageX, event.pageY);
+                    if (i <= 10) {
+                        i++;
+                        this.bursty(event.pageX, event.pageY);
+                    }
                 });
 
                 let a = setInterval(() => {
-                    this.randomizedConfetti();
-                }, 500);
+                    if (i <= 10) {
+                        i++;
+                        this.randomizedConfetti();
+                    }
+                }, 1000);
 
                 let b = setTimeout(() => {
                     setInterval(() => {
                         this.removeElement();
-                    }, 500);
-                }, 2500);
+                        i--;
+                    }, 1000);
+                }, 3000);
 
                 setTimeout(() => {
                     clearInterval(a);
-                 }, 300000);
+                }, 300000);
             }, 7000);
         }
+    }
+
+    private playAudio(): void {
+        let audio = new Audio();
+        audio.src = "assets/romantic-happy-birthday.mp3";
+        audio.loop = true;
+        audio.load();
+        audio.play();
     }
 
     private bursty(x, y) {
@@ -63,7 +80,7 @@ export class PresentScreenComponent implements OnInit {
     }
 
     private randomizedConfetti() {
-        let randomX = Math.floor(Math.random() * (document.body.clientWidth - 100) + 0);
+        let randomX = Math.floor(Math.random() * (document.body.clientWidth - 200) + 0);
         let randomY = Math.floor(Math.random() * (window.innerHeight - 200) + 0);
         const burst = new mojs.Burst({
             left: 0,
@@ -73,7 +90,7 @@ export class PresentScreenComponent implements OnInit {
             degree: 360,
             children: {
                 fill: { 'white': '#25D2FF' },
-                duration: 2000
+                duration: 5000
             }
         }).tune({
             x: randomX,

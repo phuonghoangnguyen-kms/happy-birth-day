@@ -7,6 +7,14 @@
   left: 0;
   right: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .cake-container {
+    position: absolute;
+  }
 }
 
 #cake {
@@ -111,4 +119,35 @@
 
 #btn-message {
   margin-top: 15px;
+}
+
+@media screen and (min-width: 1251px) {
+  .background {
+    .cake-container {
+      top: 15%;
+    }
+    .theme-card {
+      margin-top: 15%;
+    }
+  }
+}
+@media screen and (max-width: 1250px) {
+  .background {
+    .cake-container {
+      top: -5%;
+    }
+    .theme-card {
+      margin-top: 15%;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .background {
+    .cake-container {
+      top: -30%;
+    }
+    .theme-card {
+      margin-top: 20%;
+    }
+  }
 }

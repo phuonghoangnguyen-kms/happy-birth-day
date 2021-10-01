@@ -32,7 +32,7 @@ $heart-color: red;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 3.5rem;
+        font-size: calc(100vw / 20);
       }
       .image {
         width: 100%;
@@ -60,7 +60,7 @@ $heart-color: red;
         bottom: 0;
         background: rgba(0, 0, 0, 0.35);
         color: white;
-        font-size: 2rem;
+        font-size: calc(100vw / 50);
         white-space: pre-wrap;
         padding: 5px;
       }
@@ -274,6 +274,101 @@ $heart-color: red;
         }
         &.navigate-previous {
           left: 0;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1251px) {
+    .popup-content {
+      .container {
+        .end {
+          > div {
+            width: 90%;
+          }
+          #text-1,
+          #text-2 {
+            font-size: 3em;
+          }
+
+          #text-3 {
+            .heart {
+              height: calc(#{$heart-size} * 1.5);
+              width: calc(#{$heart-size} * 1.5);
+              &:after,
+              &:before {
+                height: calc(#{$heart-size} * 1.5);
+                width: calc(#{$heart-size} * 1.5);
+              }
+
+              &:after {
+                left: calc(#{$heart-size-after} * 1.5);
+              }
+
+              &:before {
+                top: calc(#{$heart-size-before} * 1.5);
+              }
+            }
+
+            #love-text {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .popup-content {
+      .container {
+        .wishlist {
+          .header {
+            font-size: 30px;
+          }
+          ol {
+            li {
+              margin-bottom: 10px;
+              font-size: 15px;
+              input {
+                font-size: 15px;
+              }
+            }
+          }
+        }
+        .end {
+          > div {
+            width: 77%;
+          }
+
+          #text-1,
+          #text-2 {
+            font-size: 0.95rem;
+          }
+
+          #text-3 {
+            .heart {
+              height: calc(#{$heart-size} / 2);
+              width: calc(#{$heart-size} / 2);
+              &:after,
+              &:before {
+                height: calc(#{$heart-size} / 2);
+                width: calc(#{$heart-size} / 2);
+              }
+
+              &:after {
+                left: calc(#{$heart-size-after} / 2);
+              }
+
+              &:before {
+                top: calc(#{$heart-size-before} / 2);
+              }
+            }
+
+            #love-text {
+              top: 10px;
+              font-size: 0.8rem;
+            }
+          }
         }
       }
     }
