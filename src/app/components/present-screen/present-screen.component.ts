@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import mojs from '@mojs/core';
 
 @Component({
@@ -6,18 +6,23 @@ import mojs from '@mojs/core';
     templateUrl: './present-screen.component.html',
     styleUrls: ['./present-screen.component.scss']
 })
-export class PresentScreenComponent implements OnInit {
+export class PresentScreenComponent implements OnInit, AfterViewInit {
 
     active = false;
     screen = 1;
 
+    audioPlayed = false;
+
     constructor() { }
 
     ngOnInit(): void {
-        this.playAudio();
     }
 
-    public changeScreen(screen: number): void {
+    async ngAfterViewInit(): Promise<void> {
+        await this.playAudio();
+    }
+
+    changeScreen(screen: number): void {
         this.screen = screen;
 
         if (screen === 2) {
@@ -52,15 +57,7 @@ export class PresentScreenComponent implements OnInit {
         }
     }
 
-    private playAudio(): void {
-        let audio = new Audio();
-        audio.src = "assets/romantic-happy-birthday.mp3";
-        audio.loop = true;
-        audio.load();
-        audio.play();
-    }
-
-    private bursty(x, y) {
+    bursty(x, y) {
         const burst = new mojs.Burst({
             left: 0,
             top: 0,
@@ -79,7 +76,7 @@ export class PresentScreenComponent implements OnInit {
         burst.replay();
     }
 
-    private randomizedConfetti() {
+    randomizedConfetti() {
         let randomX = Math.floor(Math.random() * (document.body.clientWidth - 200) + 0);
         let randomY = Math.floor(Math.random() * (window.innerHeight - 200) + 0);
         const burst = new mojs.Burst({
@@ -100,10 +97,20 @@ export class PresentScreenComponent implements OnInit {
         burst.replay();
     }
 
-    private removeElement(): void {
+    removeElement(): void {
         const element = document.querySelector('[data-name="mojs-shape"');
         if (element) {
             element.remove();
         }
+    }
+
+
+    async playAudio(): Promise<void> {
+        let audio = new Audio();
+        audio.src = "assets/romantic-happy-birthday.mp3";
+        audio.loop = true;
+        audio.autoplay = true;
+        audio.load();
+        audio.play();
     }
 }

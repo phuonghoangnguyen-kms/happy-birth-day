@@ -241,12 +241,12 @@ $min-image-size: 48px;
     }
   }
 
-  @media screen and (min-width: 1251px) {
+  @media screen and (min-width: 1281px) {
     .image {
       @include pageTemplate(78px);
     }
   }
-  @media screen and (max-width: 1250px) {
+  @media screen and (max-width: 1280px) {
     .image {
       @include pageTemplate(48px);
     }
