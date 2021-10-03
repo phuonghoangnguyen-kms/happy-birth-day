@@ -8,6 +8,11 @@
   src: url(./../../../../assets/font/clover.otf);
 }
 
+@font-face {
+  font-family: Iconmoon;
+  src: url("./../../../../assets/font/iconmoon.ttf");
+}
+
 $heart-size: 200px;
 $heart-size-before: $heart-size / -2;
 $heart-size-after: $heart-size / 2;
@@ -91,81 +96,84 @@ $heart-color: red;
           }
         }
       }
+      $end-size: 130px;
       .end {
-        height: 100%;
-        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: $end-size;
 
         > div {
-          width: 95%;
-        }
-        #text-1 {
-          width: 3.2ch;
-          animation: typing 0.8s steps(15);
-          white-space: nowrap;
-          overflow: hidden;
-          font-family: monospace;
-          font-size: 2em;
+          animation: opacity 10s;
         }
 
-        #text-2 {
-          width: 15ch;
-          visibility: hidden;
-          animation: visible 0s 0s forwards, typing 1s steps(15);
-          white-space: nowrap;
-          overflow: hidden;
-          font-family: monospace;
-          font-size: 2em;
-          animation-delay: 1.4s;
-        }
-
-        #text-3 {
-          visibility: hidden;
-          animation: visible 0s 0s forwards, opacity 3.5s;
-          animation-delay: 3.5s;
-
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        .ico {
           position: relative;
-          .heart {
-            background-color: $heart-color;
-            height: $heart-size;
-            width: $heart-size;
-            transform: rotate(-45deg);
+          width: $end-size;
+          height: $end-size;
 
-            &:after {
-              background-color: $heart-color;
-              content: "";
-              border-radius: 50%;
-              position: absolute;
-              width: $heart-size;
-              height: $heart-size;
-              top: 0px;
-              left: $heart-size-after;
-            }
-
-            &:before {
-              background-color: $heart-color;
-              content: "";
-              border-radius: 50%;
-              position: absolute;
-              width: $heart-size;
-              height: $heart-size;
-              top: $heart-size-before;
-              left: 0px;
+          $title-size: 20px;
+          .title {
+            font-size: $title-size;
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            color: white;
+            .ico3:after {
+              color: white;
+              content: "\f004";
+              font-size: $title-size;
+              font-family: Iconmoon;
             }
           }
 
-          #love-text {
-            font-family: Clover;
+          &:before,
+          &:after,
+          .ico2:before,
+          .ico2:after {
             position: absolute;
-            color: white;
-            font-weight: bold;
-            top: 20px;
-            font-size: 1.5rem;
+            top: 0;
+            left: 0;
+          }
+
+          &:before,
+          &:after,
+          .ico2:before,
+          .ico2:after {
+            display: block;
+            font-size: $end-size;
+            color: #d34156;
+            content: "\f004";
+            font-family: Iconmoon;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+
+          &:before {
+            z-index: 3;
+          }
+          &:after {
+            animation: explode 4s infinite;
+          }
+
+          .ico2:before,
+          .ico2:after {
+            color: #d34156;
+          }
+
+          .ico2:before {
+            animation: explodeSmall 3s infinite;
+          }
+          .ico2:after {
+            animation: explodeSmall 2s infinite;
           }
         }
       }
@@ -279,45 +287,6 @@ $heart-color: red;
     }
   }
 
-  @media screen and (min-width: 1281px) {
-    .popup-content {
-      .container {
-        .end {
-          > div {
-            width: 90%;
-          }
-          #text-1,
-          #text-2 {
-            font-size: 3em;
-          }
-
-          #text-3 {
-            .heart {
-              height: calc(#{$heart-size} * 1.5);
-              width: calc(#{$heart-size} * 1.5);
-              &:after,
-              &:before {
-                height: calc(#{$heart-size} * 1.5);
-                width: calc(#{$heart-size} * 1.5);
-              }
-
-              &:after {
-                left: calc(#{$heart-size-after} * 1.5);
-              }
-
-              &:before {
-                top: calc(#{$heart-size-before} * 1.5);
-              }
-            }
-
-            #love-text {
-              font-size: 2.5rem;
-            }
-          }
-        }
-      }
-    }
-  }
   @media screen and (max-width: 800px) {
     .popup-content {
       .container {
@@ -336,37 +305,23 @@ $heart-color: red;
           }
         }
         .end {
-          > div {
-            width: 77%;
-          }
+          font-size: 80px;
+          .ico {
+            width: 80px;
+            height: 80px;
 
-          #text-1,
-          #text-2 {
-            font-size: 0.95rem;
-          }
-
-          #text-3 {
-            .heart {
-              height: calc(#{$heart-size} / 2);
-              width: calc(#{$heart-size} / 2);
-              &:after,
-              &:before {
-                height: calc(#{$heart-size} / 2);
-                width: calc(#{$heart-size} / 2);
-              }
-
-              &:after {
-                left: calc(#{$heart-size-after} / 2);
-              }
-
-              &:before {
-                top: calc(#{$heart-size-before} / 2);
-              }
+            &:before,
+            &:after,
+            .ico2:before,
+            .ico2:after {
+              font-size: 80px;
             }
 
-            #love-text {
-              top: 10px;
-              font-size: 0.8rem;
+            .title {
+              font-size: 12px;
+              .ico3:after {
+                font-size: 12px;
+              }
             }
           }
         }
@@ -375,15 +330,24 @@ $heart-color: red;
   }
 }
 
-@keyframes typing {
+@keyframes explode {
   from {
-    width: 0;
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
   }
 }
-
-@keyframes visible {
+@keyframes explodeSmall {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
   to {
-    visibility: visible;
+    transform: scale(1.2);
+    opacity: 0;
   }
 }
 
