@@ -105,75 +105,82 @@ $heart-color: red;
         height: 100%;
         font-size: $end-size;
 
-        > div {
-          animation: opacity 10s;
-        }
-
-        .ico {
+        .end-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           position: relative;
-          width: $end-size;
-          height: $end-size;
 
-          $title-size: 20px;
-          .title {
-            font-size: $title-size;
-            position: absolute;
-            z-index: 10;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            color: white;
-            .ico3:after {
-              color: white;
-              content: "\f004";
+          > div {
+            animation: opacity 10s;
+          }
+
+          .ico {
+            position: relative;
+            width: $end-size;
+            height: $end-size;
+
+            $title-size: 20px;
+            .title {
               font-size: $title-size;
-              font-family: Iconmoon;
+              position: absolute;
+              z-index: 10;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              width: 100%;
+              height: 100%;
+              color: white;
+              .ico3:after {
+                color: white;
+                content: "\f004";
+                font-size: $title-size;
+                font-family: Iconmoon;
+              }
             }
-          }
 
-          &:before,
-          &:after,
-          .ico2:before,
-          .ico2:after {
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
+            &:before,
+            &:after,
+            .ico2:before,
+            .ico2:after {
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
 
-          &:before,
-          &:after,
-          .ico2:before,
-          .ico2:after {
-            display: block;
-            font-size: $end-size;
-            color: #d34156;
-            content: "\f004";
-            font-family: Iconmoon;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
+            &:before,
+            &:after,
+            .ico2:before,
+            .ico2:after {
+              display: block;
+              font-size: $end-size;
+              color: #d34156;
+              content: "\f004";
+              font-family: Iconmoon;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
 
-          &:before {
-            z-index: 3;
-          }
-          &:after {
-            animation: explode 4s infinite;
-          }
+            &:before {
+              z-index: 3;
+            }
+            &:after {
+              animation: explode 4s infinite;
+            }
 
-          .ico2:before,
-          .ico2:after {
-            color: #d34156;
-          }
+            .ico2:before,
+            .ico2:after {
+              color: #d34156;
+            }
 
-          .ico2:before {
-            animation: explodeSmall 3s infinite;
-          }
-          .ico2:after {
-            animation: explodeSmall 2s infinite;
+            .ico2:before {
+              animation: explodeSmall 3s infinite;
+            }
+            .ico2:after {
+              animation: explodeSmall 2s infinite;
+            }
           }
         }
       }
@@ -330,6 +337,30 @@ $heart-color: red;
   }
 }
 
+::ng-deep .popup-content .container .end .particle {
+  opacity: 0;
+  position: absolute;
+  background-color: rgba(204, 42, 93, 1);
+  animation: hearts 3s ease-in infinite;
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+    border-radius: 100px;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(204, 42, 93, 1);
+  }
+  &:before {
+    transform: translateX(-50%);
+  }
+  &:after {
+    transform: translateY(-50%);
+  }
+}
+
 @keyframes explode {
   from {
     transform: scale(1);
@@ -340,6 +371,7 @@ $heart-color: red;
     opacity: 0;
   }
 }
+
 @keyframes explodeSmall {
   from {
     transform: scale(1);
@@ -357,5 +389,21 @@ $heart-color: red;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes hearts {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0%) rotate(45deg);
+  }
+  20% {
+    //show and hint at moving
+    opacity: 0.8;
+    transform: translate(0, -20%) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -1000%) rotate(45deg); //Big hearts move faster
   }
 }

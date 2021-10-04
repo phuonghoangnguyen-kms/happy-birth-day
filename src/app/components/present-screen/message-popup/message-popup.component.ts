@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { MatDialogRef } from "@angular/material/dialog";
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import './../../../../assets/js/smtp.js';
 declare let Email: any;
 
@@ -9,6 +9,7 @@ declare let Email: any;
     styleUrls: ['./message-popup.component.scss']
 })
 export class MessagePopupComponent implements OnInit, AfterViewInit {
+
     constructor(
         public dialogRef: MatDialogRef<MessagePopupComponent>) {
     }
@@ -61,6 +62,12 @@ export class MessagePopupComponent implements OnInit, AfterViewInit {
         }
 
         this.index++;
+
+        if (this.index == this.messages.length + 2) {
+            setTimeout(() => {
+                this.hearts();
+            })
+        }
     }
 
     sendEmail(): void {
@@ -94,5 +101,25 @@ export class MessagePopupComponent implements OnInit, AfterViewInit {
         }
 
         return false;
+    }
+
+    hearts(): void {
+        const element: HTMLElement = document.querySelector('.end .end-container');
+        const heartcount = (element.offsetWidth / 50) * 5;
+        for (var i = 0; i <= heartcount; i++) {
+            var size = (this.random(60, 120) / 10);
+            const span = document.createElement('span');
+            span.className = 'particle';
+            span.style.top = this.random(20, 80) + '%';
+            span.style.left = this.random(0, 95) + '%';
+            span.style.width = size + 'px';
+            span.style.height = size + 'px';
+            span.style.animationDelay = (this.random(0, 30) / 10) + 's';
+            element.append(span);
+        }
+    }
+
+    random(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 }
