@@ -15,11 +15,11 @@ export class MessagePopupComponent implements OnInit, AfterViewInit {
     }
 
     messages: string[] = [
-        'Messge 1',
-        'Messge 2',
-        'Messge 3',
-        'Messge 4',
-        'Messge 5'
+        '♥ Today is a very special day! Exactly 25 years ago, on this day, a princess was born. She is a beautiful princess and her name is Phuong Anh.',
+        '♥ The 25th birdthday, it\'s a memorable milestone for you. So I made this gift for you to mark a new beginning.',
+        '♥ I wish you continued success at your work. Wishing you will reach to new level and achieve your goals. Just keep trying, I\'m always behind to cheer you on.',
+        '♥ Life is the trip. I wish you have a good health to go all where you want to go. I hope we will have trips together. I can\'t wait to do it :D.',
+        '♥ Finally, I wish you are always young, beautiful and happy. Always is `mushroom girl` I know :">. I hope we have many more memories together. Blow out the candles, make a wish. \r\nHAPPY BIRTHDAY TO YOU!!!'
     ]
 
     wishlist1: string;
