@@ -10,6 +10,7 @@ import { CurtainComponent } from './components/present-screen/curtain/curtain.co
 import { EnvelopeComponent } from './components/present-screen/envelope/envelope.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ImageHeartComponent } from './components/present-screen/image-heart/image-heart.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -34,12 +35,13 @@ import { ThemeCardComponent } from './components/present-screen/theme-card/theme
     ThemeCardComponent,
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
+    BrowserAnimationsModule,
+    BrowserModule,
     CommonModule,
-    MatDialogModule
+    FormsModule,
+    HttpClientModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

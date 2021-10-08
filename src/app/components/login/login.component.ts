@@ -1,9 +1,11 @@
 import {
     Component,
     EventEmitter,
+    Input,
     OnInit,
     Output
 } from '@angular/core';
+import { Config } from 'src/models/config';
 
 @Component({
     selector: 'app-login',
@@ -12,6 +14,7 @@ import {
 })
 export class LoginComponent implements OnInit {
 
+    @Input() config: Config;
     @Output() next: EventEmitter<any> = new EventEmitter();
 
     day: number;
@@ -25,7 +28,7 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void { }
 
     verify(): boolean {
-        return this.day === 24 && this.month === 10 && this.year === 1996;
+        return this.day === this.config.BirthDay.Day && this.month === this.config.BirthDay.Month && this.year === this.config.BirthDay.Year;
     }
 
     open(): void {

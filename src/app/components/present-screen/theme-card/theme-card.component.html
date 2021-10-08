@@ -1,41 +1,16 @@
 <div class="container">
-  <div class="text words chars splitting" data-splitting="" style="--word-total:4; --char-total:26;">
-    <span class="word" data-word="Happy" style="--word-index:0;">
-      <span class="char" data-char="H" style="--char-index:0;">H</span>
-      <span class="char" data-char="a" style="--char-index:1;">a</span>
-      <span class="char" data-char="p" style="--char-index:2;">p</span>
-      <span class="char" data-char="p" style="--char-index:3;">p</span>
-      <span class="char" data-char="y" style="--char-index:4;">y</span>
-    </span><span class="whitespace">&nbsp;</span>
-    <span class="word" data-word="Birthday," style="--word-index:1;">
-      <span class="char" data-char="B" style="--char-index:5;">B</span>
-      <span class="char" data-char="i" style="--char-index:6;">i</span>
-      <span class="char" data-char="r" style="--char-index:7;">r</span>
-      <span class="char" data-char="t" style="--char-index:8;">t</span>
-      <span class="char" data-char="h" style="--char-index:9;">h</span>
-      <span class="char" data-char="d" style="--char-index:10;">d</span>
-      <span class="char" data-char="a" style="--char-index:11;">a</span>
-      <span class="char" data-char="y" style="--char-index:12;">y</span>
-      <span class="char" data-char="," style="--char-index:13;">,</span>
-    </span>
-    <span class="whitespace">&nbsp;</span>
-    <span class="word" data-word="Phuong" style="--word-index:2;">
-      <span class="char" data-char="P" style="--char-index:14;">P</span>
-      <span class="char" data-char="h" style="--char-index:15;">h</span>
-      <span class="char" data-char="u" style="--char-index:16;">u</span>
-      <span class="char" data-char="o" style="--char-index:17;">o</span>
-      <span class="char" data-char="n" style="--char-index:18;">n</span>
-      <span class="char" data-char="g" style="--char-index:19;">g</span>
-    </span>
-    <span class="whitespace">&nbsp;</span>
-    <span class="word" data-word="Anh!!!" style="--word-index:3;">
-      <span class="char" data-char="A" style="--char-index:20;">A</span>
-      <span class="char" data-char="n" style="--char-index:21;">n</span>
-      <span class="char" data-char="h" style="--char-index:22;">h</span>
-      <span class="char" data-char="!" style="--char-index:23;">!</span>
-      <span class="char" data-char="!" style="--char-index:24;">!</span>
-      <span class="char" data-char="!" style="--char-index:25;">!</span>
-    </span>
+  <div
+    class="text words chars splitting"
+    style="--word-total: 4; --char-total: 26"
+  >
+    <ng-container *ngFor="let work of works; let i = index; let isLast = last">
+      <span class="word" style="--word-index: {{ i }}">
+        <ng-container *ngFor="let char of work.Chars">
+          <span class="char" style="--char-index: {{char.Index}}">{{char.Char}}</span>
+        </ng-container>
+      </span>
+      <span class="whitespace" *ngIf="!isLast">&nbsp;</span>
+    </ng-container>
   </div>
   <envelope class="envelope" (callback)="callback.emit()" #envelope></envelope>
 </div>

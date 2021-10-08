@@ -1,0 +1,32 @@
+{
+  "WelcomeTitle": "WHAT'S YOUR DATE OF BIRTH?",
+  "WrongBirthDay": "Hmmm.... You're not my girl!",
+  "BirthDay": {
+    "Day": 24,
+    "Month": 10,
+    "Year": 1996
+  },
+  "HappyBirthDayText": "Happy Birthday, Phuong Anh!!!",
+  "DearMessage": "Dear my girl!",
+  "Messages": [
+    "♥ Today is a very special day! Exactly 25 years ago, on this day, a princess was born. She is a beautiful princess and her name is Phuong Anh.",
+    "♥ The 25th birdthday, it's a memorable milestone for you. So I made this gift for you to mark a new beginning.",
+    "♥ I wish you continued success at your work. Wishing you will reach to new level and achieve your goals. Just keep trying, I'm always behind to cheer you on.",
+    "♥ Life is the trip. I wish you have a good health to go all where you want to go. I hope we will have trips together. I can't wait to do it :D.",
+    "♥ Finally, I wish you are always young, beautiful and happy. Always is `mushroom girl` I know :\">. I hope we have many more memories together. Blow out the candles, make a wish. \r\nHAPPY BIRTHDAY TO YOU!!!"
+  ],
+  "WishlistNumber": 7,
+  "WishlistMessage": "Hmmm, so sad when you don't input any things :'(",
+  "NameInHeart": {
+    "Name1": "Phuong",
+    "Name2": "Anh"
+  },
+  "LastMessage": "The festival season is comming to town....but back seat of mine is still blank... If you don’t mind, would you fill in that blank?",
+  "Email": {
+    "SecureToken": "197eae5e-4b78-4f17-ae16-0bde352a5e10",
+    "To": "hoangtuhoangphuong@gmail.com",
+    "From": "nhphuong020193@gmail.com",
+    "Subject": "Happy birthday"
+  },
+  "Music": "assets/romantic-happy-birthday.mp3"
+}

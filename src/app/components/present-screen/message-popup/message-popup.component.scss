@@ -70,6 +70,9 @@ $heart-color: red;
         padding: 5px;
       }
       .wishlist {
+        overflow-x: auto;
+        height: 100%;
+
         .header {
           font-family: FleurDeLeahRegular;
           text-align: center;
@@ -101,6 +104,7 @@ $heart-color: red;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         width: 100%;
         height: 100%;
         font-size: $end-size;
@@ -181,6 +185,24 @@ $heart-color: red;
             .ico2:after {
               animation: explodeSmall 2s infinite;
             }
+          }
+        }
+
+        .end-message {
+          font-size: 16px;
+        }
+
+        .end-box {
+          margin-top: 10px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          textarea {
+            border-radius: 5px;
+            margin-bottom: 5px;
           }
         }
       }

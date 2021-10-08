@@ -1,5 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import mojs from '@mojs/core';
+import {
+    AfterViewInit,
+    Component,
+    Input,
+    OnInit
+} from '@angular/core';
+import { Config } from 'src/models/config';
 
 @Component({
     selector: 'present-screen',
@@ -7,6 +13,8 @@ import mojs from '@mojs/core';
     styleUrls: ['./present-screen.component.scss']
 })
 export class PresentScreenComponent implements OnInit, AfterViewInit {
+
+    @Input() config: Config;
 
     active = false;
     screen = 1;
@@ -107,7 +115,7 @@ export class PresentScreenComponent implements OnInit, AfterViewInit {
 
     async playAudio(): Promise<void> {
         let audio = new Audio();
-        audio.src = "assets/romantic-happy-birthday.mp3";
+        audio.src = this.config.Music;
         audio.loop = true;
         audio.autoplay = true;
         audio.load();
