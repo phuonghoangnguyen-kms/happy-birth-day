@@ -21,12 +21,16 @@
     "Name1": "Phuong",
     "Name2": "Anh"
   },
-  "LastMessage": "The festival season is comming to town....but back seat of mine is still blank... If you don’t mind, would you fill in that blank?",
+  "LastMessage": "The festival season is comming to town....but back seat of mine is still blank... \r\nIf you don’t mind, would you fill in that blank?",
   "Email": {
     "SecureToken": "197eae5e-4b78-4f17-ae16-0bde352a5e10",
     "To": "hoangtuhoangphuong@gmail.com",
     "From": "nhphuong020193@gmail.com",
     "Subject": "Happy birthday"
   },
-  "Music": "assets/romantic-happy-birthday.mp3"
+  "Music": [
+    "assets/romantic-happy-birthday.mp3",
+    "assets/Happy Birthday acoustic David Lee.mp3",
+    "assets/Happy Birthday My Love Friz Love.mp3"
+  ]
 }
